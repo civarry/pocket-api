@@ -78,14 +78,6 @@ html, body{
   font-size: 28px;
   margin-top: -6px;
 }
-#preloader{
-  background: #101010 url(/icons/preloader/preloader.gif) no-repeat center center;
-  background-size: 25%;
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  z-index: 100;
-}
 @media screen and (max-width: 600px) and (orientation: portrait) {
   .card{
     width: 100%;
