@@ -167,7 +167,7 @@ body {
   background-size: 25%;
   height: 100%;
   width: 100%;
-  position: absolute;
+  position: fixed;
   z-index: 100;
 }
 @media screen and (max-width: 600px) and (orientation: portrait) {
