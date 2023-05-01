@@ -162,6 +162,14 @@ body {
   scale: 0.9;
   background-color: rgb(136, 134, 134);
 }
+#preloader{
+  background: #101010 url(/icons/preloader/preloader.gif) no-repeat center center;
+  background-size: 25%;
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  z-index: 100;
+}
 @media screen and (max-width: 600px) and (orientation: portrait) {
   * {
     box-sizing: border-box;

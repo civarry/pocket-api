@@ -110,3 +110,9 @@ function showMainMenu() {
 }
 const backButton = document.getElementById("back-button");
 backButton.addEventListener("click", showMainMenu);
+
+// this is for the preloader
+let loader = document.getElementById("preloader");
+window.addEventListener("load", function () {
+  loader.style.display = "none";
+});
