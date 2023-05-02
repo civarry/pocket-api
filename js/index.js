@@ -79,7 +79,10 @@ function showWeatherContent() {
 }
 
 function showNewsContent() {
-  fetch("html/news-content.html")
+  fetch("html/news-content.html", {
+    method: "GET",
+    headers: { Upgrade: "HTTP/2.0" },
+  })
     .then((response) => response.text())
     .then((html) => {
       contentContainer.innerHTML = html;
