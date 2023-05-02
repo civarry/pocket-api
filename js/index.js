@@ -139,10 +139,8 @@ function showNewsContent() {
 
         getNewsData(searchQuery)
           .then((data) => {
-            console.log(data);
             const articles = data.articles;
             const cardListItems = articles
-              // .slice(0, 10) // limit to 10 items
               .map((article) => {
                 const {
                   title,
@@ -153,23 +151,23 @@ function showNewsContent() {
                   author,
                 } = article;
                 return `
-                <div class="card card-list__item">
-                <div class="card-image-container">
-                  <img class="card-image" src="${urlToImage}" alt="${title}">
-                </div>
-                <div class="card-content">
-                <span class="card-date">${new Date(
-                  publishedAt
-                ).toLocaleDateString("en-US", {
-                  day: "numeric",
-                  month: "short",
-                  year: "numeric",
-                })} / ${author ? author.slice(0, 20) : "null"}</span>
-                  <h3 class="card-title"><a href="${url}" target="_blank">${title}</a></h3>
-                  <p class="card-description">${description}</p>
-                </div>
-              </div>
-                  `;
+              <div class="card card-list__item">
+                      <div class="card-image-container">
+                        <img class="card-image" src="${urlToImage}" alt="${title}">
+                      </div>
+                      <div class="card-content">
+                      <span class="card-date">${new Date(
+                        publishedAt
+                      ).toLocaleDateString("en-US", {
+                        day: "numeric",
+                        month: "short",
+                        year: "numeric",
+                      })} / ${author ? author.slice(0, 20) : "null"}</span>
+                        <h3 class="card-title"><a href="${url}" target="_blank">${title}</a></h3>
+                        <p class="card-description">${description}</p>
+                      </div>
+                    </div>
+            `;
               })
               .join("");
             cardList.innerHTML = cardListItems;
