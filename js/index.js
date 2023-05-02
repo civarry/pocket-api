@@ -1,4 +1,5 @@
 import { getWeatherData, getWeatherIcon } from "./weather-api.js";
+import { getNewsData } from "./news-api.js";
 
 const weatherButton = document.getElementById("weather-button");
 weatherButton.addEventListener("click", showWeatherContent);
@@ -11,10 +12,9 @@ movieButton.addEventListener("click", showMovieContent);
 
 const calculatorButton = document.getElementById("calculator-button");
 calculatorButton.addEventListener("click", showCalculatorContent);
+const contentContainer = document.getElementById("content-container");
 
 function showWeatherContent() {
-  const contentContainer = document.getElementById("content-container");
-
   fetch("html/weather-content.html")
     .then((response) => response.text())
     .then((html) => {
@@ -79,16 +79,107 @@ function showWeatherContent() {
 }
 
 function showNewsContent() {
-  const contentContainer = document.getElementById("content-container");
   fetch("html/news-content.html")
     .then((response) => response.text())
     .then((html) => {
       contentContainer.innerHTML = html;
+
+      const searchInput = document.getElementById("search-input");
+      const searchButton = document.getElementById("search-button");
+      const cardList = document.querySelector(".card-list");
+
+      const defaultSearchQuery = "Philippines";
+
+      getNewsData(defaultSearchQuery)
+        .then((data) => {
+          console.log(data);
+          const articles = data.articles;
+          const cardListItems = articles
+            .map((article) => {
+              const {
+                title,
+                urlToImage,
+                url,
+                description,
+                publishedAt,
+                author,
+              } = article;
+              return `
+              <div class="card card-list__item">
+                      <div class="card-image-container">
+                        <img class="card-image" src="${urlToImage}" alt="${title}">
+                      </div>
+                      <div class="card-content">
+                      <span class="card-date">${new Date(
+                        publishedAt
+                      ).toLocaleDateString("en-US", {
+                        day: "numeric",
+                        month: "short",
+                        year: "numeric",
+                      })} / ${author ? author.slice(0, 20) : "null"}</span>
+                        <h3 class="card-title"><a href="${url}" target="_blank">${title}</a></h3>
+                        <p class="card-description">${description}</p>
+                      </div>
+                    </div>
+            `;
+            })
+            .join("");
+          cardList.innerHTML = cardListItems;
+        })
+        .catch((error) => {
+          console.log(error);
+          // Handle the error
+        });
+
+      searchButton.addEventListener("click", () => {
+        const searchQuery = searchInput.value;
+
+        getNewsData(searchQuery)
+          .then((data) => {
+            console.log(data);
+            const articles = data.articles;
+            const cardListItems = articles
+              // .slice(0, 10) // limit to 10 items
+              .map((article) => {
+                const {
+                  title,
+                  urlToImage,
+                  url,
+                  description,
+                  publishedAt,
+                  author,
+                } = article;
+                return `
+                <div class="card card-list__item">
+                <div class="card-image-container">
+                  <img class="card-image" src="${urlToImage}" alt="${title}">
+                </div>
+                <div class="card-content">
+                <span class="card-date">${new Date(
+                  publishedAt
+                ).toLocaleDateString("en-US", {
+                  day: "numeric",
+                  month: "short",
+                  year: "numeric",
+                })} / ${author ? author.slice(0, 20) : "null"}</span>
+                  <h3 class="card-title"><a href="${url}" target="_blank">${title}</a></h3>
+                  <p class="card-description">${description}</p>
+                </div>
+              </div>
+                  `;
+              })
+              .join("");
+            cardList.innerHTML = cardListItems;
+          })
+          .catch((error) => {
+            console.log(error);
+            // Handle the error
+          });
+      });
     });
 }
 
 function showMovieContent() {
-  const contentContainer = document.getElementById("content-container");
   fetch("html/movie-content.html")
     .then((response) => response.text())
     .then((html) => {
@@ -97,7 +188,6 @@ function showMovieContent() {
 }
 
 function showCalculatorContent() {
-  const contentContainer = document.getElementById("content-container");
   fetch("html/calculator-content.html")
     .then((response) => response.text())
     .then((html) => {
