@@ -70,16 +70,17 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: normal;
-  max-height: 70px;
+  max-height: 100px;
 }
 
-.card-date {
+.card-date, .card-date a {
   font-family: 'Quicksand', sans-serif;
   font-size: 12px;
   padding-left:10px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  text-decoration: none;
 }
 
 .search-container {
@@ -120,7 +121,7 @@
   padding: 0 20px;
   border-radius: 5px;
   border: none;
-  background-color: #007bff;
+  background-color: #555555;
   color: #fff;
   font-size: 16px;
   cursor: pointer;
