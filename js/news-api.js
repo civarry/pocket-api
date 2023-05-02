@@ -11,7 +11,7 @@ export async function getNewsData(query) {
     const data = await response.json();
     return data;
   } catch (error) {
-    console.error("There was a problem fetching weather data:", error);
+    console.error("There was a problem fetching news data:", error);
     throw error;
   }
 }
