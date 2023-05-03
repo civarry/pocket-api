@@ -97,6 +97,19 @@
   padding: 10px;
 }
 
+.no-news-found{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: Lexend, sans-serif;
+  font-size: 2vw;
+  text-align: center;
+  color: #1a1a1a;
+  font-weight: bold;
+}
+
+
 #search-input {
   flex: 1;
   height: 40px;

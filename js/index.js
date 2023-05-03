@@ -80,6 +80,10 @@ async function showNewsContent() {
   const getData = async (searchQuery) => {
     const data = await getNewsData(searchQuery);
     const articles = data.articles;
+    if (articles.length === 0) {
+      cardList.innerHTML = '<p class="no-news-found">No matches found.</p>';
+      return;
+    }
     const cardListItems = articles
       .map(
         ({ title, image, url, description, publishedAt, source }) => `
