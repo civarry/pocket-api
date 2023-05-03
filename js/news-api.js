@@ -3,7 +3,6 @@ export function getNewsData(query) {
   // const url = `https://newsapi.org/v2/everything?q=${query}&from=2023-04-02&sortBy=publishedAt&apiKey=${apiKey}`;
   const apikey = "659acca7a1fdfb241f5cd87ea356819e";
   const url = `https://gnews.io/api/v4/search?q=${query}&lang=en&country=ph&max=10&apikey=${apikey}`;
-  console.log(url);
   return fetch(url)
     .then((response) => {
       if (!response.ok) {
