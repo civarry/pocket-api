@@ -1,40 +1,46 @@
-html, body{
+/* Apply box-sizing to all elements, reset margin and padding, and set font family */
+*, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   font-family: Arial, Helvetica, sans-serif;
 }
-.card{
+
+/* Define common styles for the card element */
+.card {
   width: 100%;
   height: 100%;
   background: linear-gradient(135deg, #00feba, #5b548a);
   color: #fff;
-  margin: 0px auto 0;
+  margin: 0 auto;
   border-radius: 20px;
-  padding:40px 35px;
+  padding: 40px 35px;
   text-align: center; 
-
 }
-.search{
+
+/* Define styles for the search bar */
+.search {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.search input{
-  border:0;
+
+.search input {
+  border: 0;
   outline: 0;
   background: #ebffeb;
   color: #555;
   padding: 10px 25px;
   height: 60px;
-  border-radius:30px;
-  flex:1;
+  border-radius: 30px;
+  flex: 1;
   margin-right: 16px;
   font-size: 18px;
 }
-.search button{
-  border:0;
+
+.search button {
+  border: 0;
   outline: 0;
   background: #ebffeb;
   border-radius: 50%;
@@ -42,105 +48,93 @@ html, body{
   height: 60px;
   cursor: pointer;
 }
-.search button img{
+
+.search button img {
   width: 16px;
 }
-.weather-icon{
+
+/* Define styles for the weather icon */
+.weather-icon {
   width: 170px;
   margin-top: 15px;
 }
-.weather h1{
+
+/* Define styles for the weather details */
+.weather h1 {
   font-size: 80px;
   font-weight: 500;
 }
-.weather h2{
+
+.weather h2 {
   font-size: 45px;
   font-weight: 400;
   margin-top: -10px;
 }
-.details{
+
+.details {
   display: flex;
   align-items: center;
   justify-content: space-around;
   padding: 0 20px;
   margin-top: 5px;
 }
-.col{
+
+.col {
   display: flex;
   align-items: center;
   text-align: left;
 }
-.col img{
+
+.col img {
   width: 40px;
   margin-right: 10px; 
 }
-.humidity, .wind{
+
+.humidity, .wind {
   font-size: 28px;
   margin-top: -6px;
 }
+
+/* Define styles for smaller screens in portrait orientation */
 @media screen and (max-width: 600px) and (orientation: portrait) {
-  .card{
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, #00feba, #5b548a);
-    color: #fff;
-    margin: 0px auto 0;
-    border-radius: 20px;
-    padding:40px 35px;
-    text-align: center;
+  .card {
+    padding: 40px 35px;
   }
-  .search{
-    width: 100%;
-    display: flex;
-    align-items: center;
+  
+  .search {
     justify-content: space-around;
   }
-  .search input{
-    border:0;
-    outline: 0;
-    background: #ebffeb;
-    color: #555;
+  
+  .search input {
     padding: 10px 25px;
     height: 40px;
-    border-radius:30px;
-    flex:1;
+    border-radius: 30px;
+    flex: 1;
     margin-right: 16px;
     font-size: 18px;
     max-width: 80%;
   }
-  .search button{
-    border:0;
-    outline: 0;
-    background: #ebffeb;
-    border-radius: 50%;
+  
+  .search button {
     padding: 11px;
     width: 40px;
     height: 40px;
-    cursor: pointer;
   }
+  
   .details {
-    display: flex;
-    align-items: center;
     justify-content: space-between;
     padding: 0;
     margin-top: 50px;
   }
   
-  .col {
-    display: flex;
-    align-items: center;
-    text-align: left;
-  }
-  
   .col img {
     width: 30px;
     margin-right: 10px;
-    margin-left: 10px
+    margin-left: 10px;
   }
   
-  .humidity,
-  .wind {
+  .humidity, .wind {
     font-size: 15px;
     margin-top: 0;
   }
-  }
+}

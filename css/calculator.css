@@ -33,8 +33,7 @@
   margin: 10px;
 }
 .calculator form input:hover {
-  background: #33ffd8;
-  color: #3a4452;
+  transform: scale(1.1);
 }
 form .display {
   display: flex;
@@ -91,8 +90,7 @@ form input.operator {
   }
 
   .calculator form input:hover {
-    background: #33ffd8;
-    color: #3a4452;
+    transform: scale(1.1);
   }
 
   form .display {

@@ -36,44 +36,33 @@ function showWeatherContent() {
       const weatherIconImg = document.getElementById("weather-icon");
       weatherDataDiv.classList.add("weather-data");
 
-      const defaultLocation = "Philippines";
+      let defaultLocation = input.value || "Philippines";
 
-      getWeatherData(defaultLocation)
-        .then((data) => {
-          console.log(data);
+      async function updateWeather(location) {
+        try {
+          const data = await getWeatherData(location);
           locationSpan.textContent = data.name;
-          temperatureSpan.textContent =
-            (data.main.temp - 273.15).toFixed(2) + "°c";
-          humidity.textContent = data.main.humidity + " %";
-          windspeed.textContent = (data.wind.speed * 3.6).toFixed(2) + " km/h";
+          temperatureSpan.textContent = `${(data.main.temp - 273.15).toFixed(
+            2
+          )}°c`;
+          humidity.textContent = `${data.main.humidity}%`;
+          windspeed.textContent = `${(data.wind.speed * 3.6).toFixed(2)} km/h`;
           const weatherIcon = getWeatherIcon(data.weather[0].description);
-          weatherIconImg.src = "/icons/weatherIcons/" + weatherIcon;
-          console.log(data.weather[0].description);
-        })
-        .catch((error) => {
-          console.log(error);
+          weatherIconImg.src = `/icons/weatherIcons/${weatherIcon}`;
+        } catch (error) {
+          console.error(error);
           // Handle the error
-        });
+        }
+      }
 
+      // Update weather for default location
+      updateWeather(defaultLocation);
+
+      // Handle form submit event
       form.addEventListener("submit", (event) => {
         event.preventDefault();
         const location = input.value;
-        getWeatherData(location)
-          .then((data) => {
-            console.log(data);
-            locationSpan.textContent = data.name;
-            temperatureSpan.textContent =
-              (data.main.temp - 273.15).toFixed(2) + "°c";
-            humidity.textContent = data.main.humidity + " %";
-            windspeed.textContent =
-              (data.wind.speed * 3.6).toFixed(2) + " km/h";
-            const weatherIcon = getWeatherIcon(data.weather[0].description);
-            weatherIconImg.src = "/icons/weatherIcons/" + weatherIcon;
-          })
-          .catch((error) => {
-            console.log(error);
-            // Handle the error
-          });
+        updateWeather(location);
       });
     });
 }
