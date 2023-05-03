@@ -141,3 +141,31 @@ let loader = document.getElementById("preloader");
 window.addEventListener("load", function () {
   loader.style.display = "none";
 });
+
+// this is for wallpaper changing
+document.addEventListener("keydown", function (e) {
+  // check if the key pressed is 'W' or 'w' and the alt key is held down
+  if ((e.key === "w" || e.key === "W") && e.altKey) {
+    try {
+      // create an input element and set its type to file
+      const fileInput = document.createElement("input");
+      fileInput.type = "file";
+      // listen for the change event on the file input
+      fileInput.addEventListener("change", function () {
+        // set the background image of the tablet-inner element to the selected file
+        const file = this.files[0];
+        const reader = new FileReader();
+        reader.onload = function () {
+          document.querySelector(
+            ".tablet-inner"
+          ).style.backgroundImage = `url('${reader.result}')`;
+        };
+        reader.readAsDataURL(file);
+      });
+      // trigger a click event on the file input to open the file dialog
+      fileInput.click();
+    } catch (error) {
+      console.error("An error occurred:", error);
+    }
+  }
+});
