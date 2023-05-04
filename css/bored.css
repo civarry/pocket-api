@@ -78,6 +78,7 @@ button:hover {
 		color: #fff;
 		margin:0 auto;
 		font-size: 1.2rem;
+		text-align: center;
 	}
 	.activity-section p{
 		font-family: 'Space Grotesk', sans-serif;
@@ -85,5 +86,6 @@ button:hover {
 		font-size: 0.8rem;
 		margin: 0 auto;
 		padding: 10px;
+		text-align: center;
 	}
 }
