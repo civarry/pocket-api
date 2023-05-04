@@ -1,5 +1,6 @@
 import { getWeatherData, getWeatherIcon } from "./weather-api.js";
 import { getNewsData } from "./news-api.js";
+import { fetchActivity } from "./bored-api.js";
 
 const weatherButton = document.getElementById("weather-button");
 weatherButton.addEventListener("click", showWeatherContent);
@@ -7,8 +8,8 @@ weatherButton.addEventListener("click", showWeatherContent);
 const newsButton = document.getElementById("news-button");
 newsButton.addEventListener("click", showNewsContent);
 
-const movieButton = document.getElementById("movie-button");
-movieButton.addEventListener("click", showMovieContent);
+const movieButton = document.getElementById("bored-button");
+movieButton.addEventListener("click", showBoredContent);
 
 const calculatorButton = document.getElementById("calculator-button");
 calculatorButton.addEventListener("click", showCalculatorContent);
@@ -118,11 +119,18 @@ async function showNewsContent() {
   await getData(defaultSearchQuery).catch((error) => console.log(error));
 }
 
-function showMovieContent() {
-  fetch("html/movie-content.html")
+function showBoredContent() {
+  fetch("html/bored-content.html")
     .then((response) => response.text())
     .then((html) => {
       contentContainer.innerHTML = html;
+      // Call fetchActivity() once when the page loads to display the initial activity
+      fetchActivity();
+
+      // Add a click event listener to the "Get Another Activity" button to fetch and display a new activity when clicked
+      document
+        .querySelector("#get-activity")
+        .addEventListener("click", fetchActivity);
     });
 }
 

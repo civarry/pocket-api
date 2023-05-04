@@ -16,6 +16,7 @@ body {
   align-items: center;
 }
 
+
 .tablet {
   background-color: #242424;
   background-size: contain;
@@ -94,7 +95,7 @@ body {
 }
 
 .app-button.movie {
-  background-image: url("/icons/movie.png");
+  background-image: url("/icons/bored.png");
   background-size: contain;
 }
 .app-button.calculator {
@@ -262,7 +263,7 @@ body {
   }
 
   .app-button.movie {
-    background-image: url("/icons/movie.png");
+    background-image: url("/icons/bored.png");
     background-size: contain;
   }
 
