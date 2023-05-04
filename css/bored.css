@@ -1,109 +1,89 @@
-/* Reset styles */
-* {
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
-}
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100;700&family=Quicksand:wght@300;700&family=Space+Grotesk:wght@300&display=swap');
 
-/* Global styles */
 body {
-	font-family: Arial, sans-serif;
-	font-size: 16px;
-	line-height: 1.4;
-	color: #333;
+  margin: 0;
+  padding: 0;
+  font-family: "Lexend", sans-serif;
 }
 
-header {
-	background-color: #333;
-	color: #fff;
-	padding: 20px;
-	text-align: center;
+.activity-section {
+  background-image: linear-gradient(to bottom, #367a83, #357ec2);
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+	margin: auto auto;
 }
 
-h1 {
-	font-size: 2.5rem;
-	font-family: 'Lexend', sans-serif;
-	margin: 0;
+.activity-section h1 {
+  font-family: 'Lexend', sans-serif;
+  color: #fff;
+  margin: 10px;
+  font-size: 2rem;
 }
 
-main {
-	max-width: 800px;
-	margin: 0 auto;
-	padding: 20px;
-}
-
-p {
-	margin-bottom: 20px;
-	font-family: 'Quicksand', sans-serif;
-	text-align: center;
+.activity-section p {
+  font-family: 'Space Grotesk', sans-serif;
+  color: #fff;
+  margin: 10px;
 }
 
 .activity-wrapper {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	height: 70vh;
-	margin-top: -50px;
-}
-
-.activity-container {
-	height: 60%;
-	width: calc(100% - 2 * 2.5rem);
-	width: fit-content;
-	background-color: #f7f7f7;
-	padding: 20px;
-	border-radius: 20px;
-	box-shadow: 10px 10px 20px #c7c7c7, -10px -10px 20px #ffffff;
-	text-align: center;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  margin: 20px;
 }
 
 #activity {
-	font-size: 2rem;
-	margin-bottom: 20px;
-	font-family: 'Lexend', sans-serif;
-	font-weight: bold;
-	text-align: justify;
+  font-size: 2rem;
+  margin: 0 0 20px;
+  font-family: "Lexend", sans-serif;
+  font-weight: bold;
+  text-align: center;
+  color: #fff;
 }
 
-button#get-activity{
-	font-size: 1.5rem;
-	padding: 10px 20px;
-	border: none;
-	border-radius: 5px;
-	background-color: #333;
-	color: #fff;
-	cursor: pointer;
-	transition: background-color 0.3s ease;
-	margin-top: 20px;
+button {
+  font-size: 1.5rem;
+  font-family: 'Lexend', sans-serif;
+  font-weight: bold;
+  width: 100%;
+  padding: 10px 0;
+  border: none;
+  border-radius: 0 0 5px 5px;
+  background-color: #fff;
+  color: #333;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+  height: 40%;
 }
 
 button:hover {
-	background-color: #555;
+  background-color: #555;
+  color: #fff;
 }
-
-footer {
-	background-color: #333;
-	color: #fff;
-	padding: 10px;
-	text-align: center;
-}
-
-@media screen and (max-width: 600px) {
-	h1 {
-		font-size: 2rem;
+@media screen and (max-width: 600px) and (orientation: portrait) {
+	.activity-section{
+		margin: auto 10px;
 	}
-
-	#activity {
-		font-size: 1.5rem;
-		margin-top: -100px;
-	}
-
-	button {
+	.activity-section h1 {
+		font-family: 'Lexend', sans-serif;
+		color: #fff;
+		margin:0 auto;
 		font-size: 1.2rem;
-		padding: 8px 16px;
+	}
+	.activity-section p{
+		font-family: 'Space Grotesk', sans-serif;
+		color: #fff;
+		font-size: 0.8rem;
+		margin: 0 auto;
+		padding: 10px;
 	}
 }
