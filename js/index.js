@@ -35,6 +35,7 @@ function showWeatherContent() {
       const humidity = document.getElementById("humidity");
       const windspeed = document.getElementById("windspeed");
       const weatherIconImg = document.getElementById("weather-icon");
+      const card = document.getElementById("weather-card");
       weatherDataDiv.classList.add("weather-data");
 
       let defaultLocation = input.value || "Philippines";
@@ -48,8 +49,11 @@ function showWeatherContent() {
           )}°c`;
           humidity.textContent = `${data.main.humidity}%`;
           windspeed.textContent = `${(data.wind.speed * 3.6).toFixed(2)} km/h`;
-          const weatherIcon = getWeatherIcon(data.weather[0].description);
-          weatherIconImg.src = `/icons/weatherIcons/${weatherIcon}`;
+          const { icon, gradient } = getWeatherIcon(
+            data.weather[0].description
+          );
+          weatherIconImg.src = `/icons/weatherIcons/${icon}`;
+          card.style.background = gradient;
         } catch (error) {
           console.error(error);
           // Handle the error

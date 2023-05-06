@@ -20,20 +20,29 @@ export function getWeatherData(location) {
 
 export function getWeatherIcon(description) {
   let icon = "clear.png"; // Default icon for clear weather
+  let gradient = "linear-gradient(135deg, #00feba, #5b548a)";
 
   // Check the weather description and assign the corresponding icon
   if (description.includes("clear")) {
     icon = "clear.png";
+    gradient = "linear-gradient(135deg, #00feba, #5b548a)";
   } else if (description.includes("clouds")) {
     icon = "clouds.png";
+    gradient = "linear-gradient(135deg, #92b6d5, #4f8ab8)";
   } else if (description.includes("drizzle") || description.includes("rain")) {
     icon = "rain.png";
+    gradient = "linear-gradient(135deg, #b6cbe0, #5c88bd)";
   } else if (description.includes("mist")) {
     icon = "mist.png";
+    gradient = "linear-gradient(135deg, #c0c0c0, #808080)";
   } else if (description.includes("snow")) {
     icon = "snow.png";
+    gradient = "linear-gradient(135deg, #b3d7e8, #5c8fb4)";
   }
 
   // Return the icon filename
-  return icon;
+  return {
+    icon: icon,
+    gradient: gradient,
+  };
 }
