@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Lexend:wght@100;700&family=Quicksand:wght@300;700&family=Space+Grotesk:wght@300&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100;700&family=Quicksand:wght@300;700&family=Space+Grotesk:wght@300&display=swap');
 
 * {
   box-sizing: border-box;
@@ -40,7 +40,7 @@
 .card-title {
   padding-top: 10px;
   margin: 0 10px;
-  font-family: "Lexend", sans-serif;
+  font-family: 'Lexend', sans-serif;
   font-size: 17px;
   font-weight: bold;
 }
@@ -64,7 +64,7 @@
 
 .card-list__item p {
   font-size: 14px;
-  font-family: "Space Grotesk", sans-serif;
+  font-family: 'Space Grotesk', sans-serif;
   line-height: 1.5;
   margin: 10px 0;
   padding: 10px;
@@ -75,11 +75,10 @@
   max-height: 113px;
 }
 
-.card-date,
-.card-date a {
-  font-family: "Quicksand", sans-serif;
+.card-date, .card-date a {
+  font-family: 'Quicksand', sans-serif;
   font-size: 12px;
-  padding-left: 10px;
+  padding-left:10px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -98,7 +97,7 @@
   padding: 10px;
 }
 
-.no-news-found {
+.no-news-found{
   position: absolute;
   top: 50%;
   left: 50%;
@@ -109,6 +108,7 @@
   color: #1a1a1a;
   font-weight: bold;
 }
+
 
 #search-input {
   flex: 1;
